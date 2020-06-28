@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promise</title>
+</head>
+<body>
+    
+    <script>
+        let empty_tank = function(){
+            return new Promise(function(resolve, reject) {
+                resolve("the car doesnt have fuel")
+            })
+        }
+
+        let engine = function(){
+            return new Promise(function(resolve, reject) {
+                resolve("the car doesnt have engine")
+            })
+        }
+
+        let travel = function(){
+            return new Promise(function(resolve, reject) {
+                resolve("the car cant travel")
+            })
+        }
+
+        empty_tank().then(function() {
+            return engine()
+        }).then(function() {
+            return travel()
+        }).then(function(){
+            console.log("done");
+        })
+    </script>
+</body>
+</html>
